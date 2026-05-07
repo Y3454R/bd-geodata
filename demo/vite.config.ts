@@ -11,8 +11,16 @@ export default defineConfig({
       '@bd': path.resolve(__dirname, '../src'),
     },
   },
+  assetsInclude: ['**/*.md'],
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        landing: path.resolve(__dirname, 'index.html'),
+        demo: path.resolve(__dirname, 'demo/index.html'),
+        docs: path.resolve(__dirname, 'docs/index.html'),
+      },
+    },
   },
 });

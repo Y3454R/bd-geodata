@@ -6,107 +6,61 @@
 npm install bangladesh-geojson
 ```
 
-## Default import
+## Use it
 
 ```ts
 import bd from 'bangladesh-geojson';
 
-const divisions = bd.getDivisions();
+bd.getDivisions();              // all 8
+bd.getDistrictsByDivision('3'); // districts in Dhaka
+bd.getUpazilasByDistrict('1');  // upazilas in Dhaka district
+bd.getPostcodesByDistrict('1'); // postcodes
+bd.search('সিলেট');             // English or Bangla
+bd.getFullHierarchy();          // nested tree of everything
 ```
 
-## Named imports
+The data ships inside the package — no API key, no internet needed once it's installed.
+
+## Pick a layer
+
+Each dataset has its own subpath, so your bundler ships only what you import:
 
 ```ts
-import {
-  getDivisions,
-  getDistrictsByDivision,
-  getUpazilasByDistrict,
-  search,
-} from 'bangladesh-geojson';
+import divisions from 'bangladesh-geojson/divisions';
+import districts from 'bangladesh-geojson/districts';
+import upazilas  from 'bangladesh-geojson/upazilas';
+import postcodes from 'bangladesh-geojson/postcodes';
+
+import boundary  from 'bangladesh-geojson/boundary'; // upazila polygons (~3.5 MB)
+import bazars    from 'bangladesh-geojson/bazars';   // ~3,500 marketplaces
+import routes    from 'bangladesh-geojson/routes';   // major highways
 ```
 
-## Examples
-
-### Build a cascade dropdown (Division → District → Upazila)
+Boundary feature properties carry our IDs and Bangla names, so you can join polygons back to the JSON:
 
 ```ts
-import bd from 'bangladesh-geojson';
-
-const divisions = bd.getDivisions();
-// User picks division id="3" (Dhaka)
-const districts = bd.getDistrictsByDivision('3');
-// User picks district id="1" (Dhaka)
-const upazilas = bd.getUpazilasByDistrict('1');
+boundary.features[0].properties;
+// { upazila_id, district_id, division_id, name, bn_name, ... }
 ```
-
-### Search by Bangla or English name
-
-```ts
-const results = bd.search('সিলেট');
-// → [{ type: 'division', data: { ... Sylhet ... } }, ...]
-
-const results2 = bd.search('Cox');
-// → matches Cox's Bazar district + upazila
-```
-
-### Get the full hierarchy as a tree
-
-```ts
-const tree = bd.getFullHierarchy();
-// [{ ...division, districts: [{ ...district, upazilas: [...] }] }]
-```
-
-### Look up postcodes for a district
-
-```ts
-const postcodes = bd.getPostcodesByDistrict('1');
-// → [{ division_id, district_id, upazila, postOffice, postCode }, ...]
-```
-
-### Use the boundary GeoJSON in a map
-
-```ts
-// With MapLibre / Mapbox
-import boundary from 'bangladesh-geojson/src/data/bangladesh.geojson';
-
-map.addSource('bd', { type: 'geojson', data: boundary });
-map.addLayer({
-  id: 'bd-fill',
-  type: 'fill',
-  source: 'bd',
-  paint: { 'fill-color': '#006a4e', 'fill-opacity': 0.1 },
-});
-```
-
-> **Tip:** The boundary file is ~7MB. In browser apps, prefer to fetch it lazily rather than bundle.
 
 ## TypeScript
 
-All types are exported:
-
 ```ts
-import type { Division, District, Upazila, Postcode, SearchResult } from 'bangladesh-geojson';
+import type { Division, District, Upazila, Postcode, Bazar, Route } from 'bangladesh-geojson';
 ```
 
-## Raw JSON
+## License
 
-If you'd rather skip the helper functions, the raw data ships in `src/data/`:
+Code is MIT. Boundary is CC BY 4.0 ([geoBoundaries](https://www.geoboundaries.org/)). Bazars and routes are ODbL ([OpenStreetMap](https://www.openstreetmap.org/)).
 
-```ts
-import divisions from 'bangladesh-geojson/src/data/bd-divisions.json';
-import districts from 'bangladesh-geojson/src/data/bd-districts.json';
-import upazilas from 'bangladesh-geojson/src/data/bd-upazilas.json';
-import postcodes from 'bangladesh-geojson/src/data/bd-postcodes.json';
-```
+When you ship the bazars or routes layer, add this line somewhere visible:
 
-## Coordinate bounds
+> © OpenStreetMap contributors
 
-All lat/long values are inside Bangladesh:
+That's it.
 
-- Latitude: 20.5° – 26.7° N
-- Longitude: 88.0° – 92.8° E
+## Caveats
 
-## Known data caveats
-
-- A small number of postcodes are missing the `district_id` mapping. CI tracks this as a warning. PRs welcome.
-- Upazila records do not include lat/long (they're not in the original government source we ingested). Use the parent district's coordinates as a fallback.
+- 12 postcodes are missing the `district_id` mapping. PRs welcome.
+- Upazilas don't have lat/long — use the parent district's coordinates.
+- The boundary file has 544 polygons; ~118 of those are Dhaka/Chittagong city thanas, not in `bd-upazilas.json`.

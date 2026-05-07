@@ -118,7 +118,18 @@ This checks structure, required fields, referential integrity, coordinate bounds
 
 ## License
 
-MIT — free for any use, commercial or otherwise. See [LICENSE](LICENSE).
+This project uses **two licenses**:
+
+- **Code** (the npm package, demo site, scripts) — [MIT](LICENSE). Free for any use, commercial or otherwise.
+- **Data files derived from OpenStreetMap** — [ODbL 1.0](LICENSE-DATA). Specifically `bd-bazars.geojson` and `bd-major-routes.geojson`. ODbL requires attribution and share-alike on derived databases.
+- **Boundary data** (`bangladesh.geojson`) — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), sourced from [geoBoundaries](https://www.geoboundaries.org/) (gbOpen, ADM3). Underlying authority: Bangladesh Bureau of Statistics (BBS) / OCHA ROAP.
+- **Administrative reference data** (`bd-divisions.json`, `bd-districts.json`, `bd-upazilas.json`, `bd-postcodes.json`, `dhaka-city.json`) — community-contributed, MIT.
+
+**Attribution when using OSM-derived layers:**
+
+> © OpenStreetMap contributors — odbl-1.0
+
+See `metadata.attribution` inside each derived GeoJSON for the exact string.
 
 ## Credits
 

@@ -27,13 +27,29 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./boundary": "./src/data/bangladesh.geojson",
+    "./bazars": "./src/data/bd-bazars.geojson",
+    "./routes": "./src/data/bd-major-routes.geojson",
+    "./divisions": "./src/data/bd-divisions.json",
+    "./districts": "./src/data/bd-districts.json",
+    "./upazilas": "./src/data/bd-upazilas.json",
+    "./postcodes": "./src/data/bd-postcodes.json",
+    "./dhaka-city": "./src/data/dhaka-city.json"
+  },
   "files": [
     "dist",
     "src/data",
     "src/types.ts",
     "src/index.ts",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "LICENSE-DATA"
   ],
   "scripts": {
     "validate": "node scripts/validate-data.js",

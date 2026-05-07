@@ -38,6 +38,31 @@ export interface DhakaArea {
   bn_name: string;
 }
 
+export interface Bazar {
+  osm_id: string;
+  name: string;
+  bn_name: string;
+  upazila_id: string;
+  district_id: string;
+  division_id: string;
+  upazila: string;
+  district: string;
+  operator?: string;
+  opening_hours?: string;
+  wikidata?: string;
+}
+
+export interface Route {
+  osm_id: string;
+  name: string;
+  bn_name: string;
+  ref: string;
+  highway: 'motorway' | 'trunk' | 'primary' | string;
+  surface?: string;
+  lanes?: string;
+  oneway?: string;
+}
+
 export type SearchResultType = 'division' | 'district' | 'upazila' | 'postcode';
 
 export interface SearchResult {

@@ -8,15 +8,17 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SRC = path.join(ROOT, 'src', 'data', 'bangladesh.geojson');
 const PUBLIC_DIR = path.join(ROOT, 'demo', 'public');
-const DEST = path.join(PUBLIC_DIR, 'bangladesh.geojson');
-
-if (!fs.existsSync(SRC)) {
-  console.error(`Source not found: ${SRC}`);
-  process.exit(1);
-}
+const FILES = ['bangladesh.geojson', 'bd-bazars.geojson', 'bd-major-routes.geojson'];
 
 fs.mkdirSync(PUBLIC_DIR, { recursive: true });
-fs.copyFileSync(SRC, DEST);
-console.log(`Copied bangladesh.geojson → ${path.relative(ROOT, DEST)}`);
+for (const name of FILES) {
+  const src = path.join(ROOT, 'src', 'data', name);
+  if (!fs.existsSync(src)) {
+    console.warn(`Skipping ${name} (not found)`);
+    continue;
+  }
+  const dest = path.join(PUBLIC_DIR, name);
+  fs.copyFileSync(src, dest);
+  console.log(`Copied ${name} → ${path.relative(ROOT, dest)}`);
+}

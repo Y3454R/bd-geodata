@@ -156,6 +156,41 @@ if (postcodesMissingDistrict > 0) {
   warn(`${postcodesMissingDistrict} postcode(s) missing district_id mapping`);
 }
 
+// Boundary GeoJSON — bbox + join integrity
+let boundaryFeatures = 0;
+let boundaryMatched = 0;
+try {
+  const bd = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'bangladesh.geojson'), 'utf8'));
+  if (!Array.isArray(bd.features)) {
+    err('bangladesh.geojson: missing "features"');
+  } else {
+    boundaryFeatures = bd.features.length;
+    if (!Array.isArray(bd.bbox) || bd.bbox.length !== 4) {
+      warn('bangladesh.geojson: missing top-level bbox');
+    } else if (bd.bbox[1] > 20.65) {
+      err(`bangladesh.geojson: south edge ${bd.bbox[1].toFixed(3)}°N excludes Saint Martin's Island (need ≤ 20.65)`);
+    }
+    const upaIds = new Set(upazilas.map((u) => u.id));
+    const distIdSet = new Set(districts.map((d) => d.id));
+    let orphanUpazila = 0;
+    let orphanDistrict = 0;
+    for (const f of bd.features) {
+      const p = f.properties || {};
+      if (p.upazila_id) {
+        boundaryMatched++;
+        if (!upaIds.has(p.upazila_id)) orphanUpazila++;
+      }
+      if (p.district_id && !distIdSet.has(p.district_id)) orphanDistrict++;
+    }
+    if (orphanUpazila) err(`bangladesh.geojson: ${orphanUpazila} feature(s) reference unknown upazila_id`);
+    if (orphanDistrict) err(`bangladesh.geojson: ${orphanDistrict} feature(s) reference unknown district_id`);
+    const unmatched = boundaryFeatures - boundaryMatched;
+    if (unmatched > 0) warn(`bangladesh.geojson: ${unmatched} feature(s) have no upazila_id (city thanas / unmatched)`);
+  }
+} catch (e) {
+  err(`bangladesh.geojson: failed to load (${e.message})`);
+}
+
 // Report
 console.log('Bangladesh GeoJSON — data validation');
 console.log('-------------------------------------');
@@ -163,6 +198,7 @@ console.log(`divisions: ${divisions.length}`);
 console.log(`districts: ${districts.length}`);
 console.log(`upazilas:  ${upazilas.length}`);
 console.log(`postcodes: ${postcodes.length}`);
+console.log(`boundary:  ${boundaryFeatures} features (${boundaryMatched} joined to upazilas)`);
 console.log('');
 
 if (warnings.length) {
