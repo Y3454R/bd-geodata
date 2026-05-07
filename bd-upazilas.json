@@ -591,7 +591,7 @@
     {
       "id": "100",
       "district_id": "45",
-      "name": "{{198}}''{{199}}",
+      "name": "Cox's Bazar Sadar",
       "bn_name": "কক্স বাজার সদর"
     },
     {
@@ -945,7 +945,7 @@
     {
       "id": "159",
       "district_id": "3",
-      "name": "Gazipur Sadar-Joydebpur",
+      "name": "Gazipur Sadar",
       "bn_name": "গাজীপুর সদর"
     },
     {
@@ -1329,7 +1329,7 @@
     {
       "id": "223",
       "district_id": "11",
-      "name": "Naryanganj Sadar",
+      "name": "Narayanganj Sadar",
       "bn_name": "নারায়ানগঞ্জ সদর"
     },
     {
@@ -1341,7 +1341,7 @@
     {
       "id": "225",
       "district_id": "11",
-      "name": "Siddirgonj",
+      "name": "Siddhirganj",
       "bn_name": "সিদ্ধিরগঞ্জ"
     },
     {
@@ -1383,61 +1383,61 @@
     {
       "id": "232",
       "district_id": "13",
-      "name": "Kendua Upazilla",
+      "name": "Kendua",
       "bn_name": "কেন্দুয়া"
     },
     {
       "id": "233",
       "district_id": "13",
-      "name": "Atpara Upazilla",
+      "name": "Atpara",
       "bn_name": "আটপাড়া"
     },
     {
       "id": "234",
       "district_id": "13",
-      "name": "Barhatta Upazilla",
+      "name": "Barhatta",
       "bn_name": "বরহাট্টা"
     },
     {
       "id": "235",
       "district_id": "13",
-      "name": "Durgapur Upazilla",
+      "name": "Durgapur",
       "bn_name": "দুর্গাপুর"
     },
     {
       "id": "236",
       "district_id": "13",
-      "name": "Kalmakanda Upazilla",
+      "name": "Kalmakanda",
       "bn_name": "কলমাকান্দা"
     },
     {
       "id": "237",
       "district_id": "13",
-      "name": "Madan Upazilla",
+      "name": "Madan",
       "bn_name": "মদন"
     },
     {
       "id": "238",
       "district_id": "13",
-      "name": "Mohanganj Upazilla",
+      "name": "Mohanganj",
       "bn_name": "মোহনগঞ্জ"
     },
     {
       "id": "239",
       "district_id": "13",
-      "name": "Netrakona-S Upazilla",
+      "name": "Netrokona Sadar",
       "bn_name": "নেত্রকোনা সদর"
     },
     {
       "id": "240",
       "district_id": "13",
-      "name": "Purbadhala Upazilla",
+      "name": "Purbadhala",
       "bn_name": "পূর্বধলা"
     },
     {
       "id": "241",
       "district_id": "13",
-      "name": "Khaliajuri Upazilla",
+      "name": "Khaliajuri",
       "bn_name": "খালিয়াজুরি"
     },
     {
@@ -1473,7 +1473,7 @@
     {
       "id": "247",
       "district_id": "15",
-      "name": "Shariatpur Sadar -Palong",
+      "name": "Shariatpur Sadar",
       "bn_name": "শরীয়তপুর সদর "
     },
     {
@@ -1671,7 +1671,7 @@
     {
       "id": "280",
       "district_id": "56",
-      "name": "Chuadanga-S",
+      "name": "Chuadanga Sadar",
       "bn_name": "চুয়াডাঙ্গা সদর"
     },
     {
@@ -1887,8 +1887,8 @@
     {
       "id": "316",
       "district_id": "62",
-      "name": "angni",
-      "bn_name": "আংনি"
+      "name": "Gangni",
+      "bn_name": "গাংনী"
     },
     {
       "id": "317",
@@ -1899,25 +1899,25 @@
     {
       "id": "318",
       "district_id": "62",
-      "name": "Meherpur-S",
+      "name": "Meherpur Sadar",
       "bn_name": "মেহেরপুর সদর"
     },
     {
       "id": "319",
       "district_id": "63",
-      "name": "Narail-S Upazilla",
+      "name": "Narail Sadar",
       "bn_name": "নড়াইল সদর"
     },
     {
       "id": "320",
       "district_id": "63",
-      "name": "Lohagara Upazilla",
+      "name": "Lohagara",
       "bn_name": "লোহাগাড়া"
     },
     {
       "id": "321",
       "district_id": "63",
-      "name": "Kalia Upazilla",
+      "name": "Kalia",
       "bn_name": "কালিয়া"
     },
     {
@@ -2037,7 +2037,7 @@
     {
       "id": "341",
       "district_id": "19",
-      "name": "Joypurhat S",
+      "name": "Joypurhat Sadar",
       "bn_name": "জয়পুরহাট সদর"
     },
     {
@@ -2445,7 +2445,7 @@
     {
       "id": "409",
       "district_id": "27",
-      "name": "Gaibandha sadar",
+      "name": "Gaibandha Sadar",
       "bn_name": "গাইবান্ধা সদর"
     },
     {
@@ -2704,7 +2704,7 @@
       "id": "452",
       "district_id": "33",
       "name": "Ranisankail",
-      "bn_name": "রাণীসংকইল"
+      "bn_name": "রাণীশংকৈল"
     },
     {
       "id": "453",
@@ -2740,7 +2740,7 @@
       "id": "458",
       "district_id": "51",
       "name": "Lakhai",
-      "bn_name": "লাক্ষাই"
+      "bn_name": "লাখাই"
     },
     {
       "id": "459",
@@ -2757,7 +2757,7 @@
     {
       "id": "461",
       "district_id": "51",
-      "name": "Shaistagonj",
+      "name": "Shayestaganj",
       "bn_name": "শায়েস্তাগঞ্জ"
     },
     {
@@ -2955,7 +2955,7 @@
     {
       "id": "494",
       "district_id": "53",
-      "name": "Modhyanagar",
+      "name": "Madhyanagar",
       "bn_name": "মধ্যনগর"
     },
     {
