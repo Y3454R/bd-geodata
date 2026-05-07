@@ -1,0 +1,48 @@
+{
+  "name": "bangladesh-geojson",
+  "version": "1.0.0",
+  "description": "Open-source geographic data for Bangladesh — divisions, districts, upazilas, postcodes, and full boundary GeoJSON.",
+  "keywords": [
+    "bangladesh",
+    "geojson",
+    "geo",
+    "divisions",
+    "districts",
+    "upazilas",
+    "postcodes",
+    "bn",
+    "bangla",
+    "map"
+  ],
+  "author": "Fahim Reza <https://github.com/ifahimreza>",
+  "license": "MIT",
+  "homepage": "https://geojson.bd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ifahimreza/bangladesh-geojson.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ifahimreza/bangladesh-geojson/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/data",
+    "src/types.ts",
+    "src/index.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-data.js",
+    "build": "tsc",
+    "demo:dev": "npm --prefix demo run dev",
+    "demo:build": "npm --prefix demo run build",
+    "demo:install": "npm --prefix demo install"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
