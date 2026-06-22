@@ -1,22 +1,22 @@
-# bangladesh-geojson
+# bd-geojson
 
-[![npm version](https://img.shields.io/npm/v/bangladesh-geojson.svg)](https://www.npmjs.com/package/bangladesh-geojson)
+[![npm version](https://img.shields.io/npm/v/bd-geojson.svg)](https://www.npmjs.com/package/bd-geojson)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Validate](https://github.com/ifahimreza/bangladesh-geojson/actions/workflows/validate.yml/badge.svg)](https://github.com/ifahimreza/bangladesh-geojson/actions/workflows/validate.yml)
-[![Demo](https://img.shields.io/badge/demo-geojson.bd-006a4e)](https://geojson.bd)
+[![Validate](https://github.com/Y3454R/bd-geodata/actions/workflows/ci.yml/badge.svg)](https://github.com/Y3454R/bd-geodata/actions/workflows/ci.yml)
+[![Demo](https://img.shields.io/badge/demo-y3454r.github.io%2Fbd--geodata-006a4e)](https://y3454r.github.io/bd-geodata)
 
 Open-source geographic data for Bangladesh — divisions, districts, upazilas, postcodes, and full boundary GeoJSON. Free, accurate, and community-maintained.
 
-> **Demo:** https://geojson.bd · **GitHub:** https://github.com/ifahimreza/bangladesh-geojson
+> **Demo:** https://y3454r.github.io/bd-geodata · **GitHub:** https://github.com/Y3454R/bd-geodata
 
 ## Quick Start
 
 ```bash
-npm install bangladesh-geojson
+npm install bd-geojson
 ```
 
 ```ts
-import bd from 'bangladesh-geojson';
+import bd from 'bd-geojson';
 
 bd.getDivisions();              // 8 divisions
 bd.getDistrictsByDivision('3'); // districts in Dhaka division
@@ -28,8 +28,8 @@ bd.getFullHierarchy();          // full division → district → upazila tree
 You can also import the raw JSON files directly:
 
 ```ts
-import divisions from 'bangladesh-geojson/src/data/bd-divisions.json';
-import boundary from 'bangladesh-geojson/src/data/bangladesh.geojson';
+import divisions from 'bd-geojson/divisions';
+import boundary from 'bd-geojson/boundary';
 ```
 
 ## What's Inside
@@ -86,7 +86,7 @@ More examples in [docs/USAGE.md](docs/USAGE.md).
 
 ## Demo Site
 
-The demo at [geojson.bd](https://geojson.bd) lets you:
+The demo at [y3454r.github.io/bd-geodata](https://y3454r.github.io/bd-geodata) lets you:
 - Search any division, district, or upazila by EN or Bangla name
 - Browse the full hierarchy with cascade dropdowns
 - See the boundary on a MapLibre map (OpenFreeMap tiles)
@@ -133,4 +133,4 @@ See `metadata.attribution` inside each derived GeoJSON for the exact string.
 
 ## Credits
 
-Maintained by [@ifahimreza](https://github.com/ifahimreza) and [contributors](https://github.com/ifahimreza/bangladesh-geojson/graphs/contributors). Map tiles by [OpenFreeMap](https://openfreemap.org).
+Maintained by [@Y3454R](https://github.com/Y3454R) and [contributors](https://github.com/Y3454R/bd-geodata/graphs/contributors). Originally forked from [bangladesh-geojson](https://github.com/ifahimreza/bangladesh-geojson) by [@ifahimreza](https://github.com/ifahimreza). Map tiles by [OpenFreeMap](https://openfreemap.org).
