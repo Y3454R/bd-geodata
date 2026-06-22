@@ -53,12 +53,13 @@
   ],
   "scripts": {
     "validate": "node scripts/validate-data.js",
-    "build": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist",
     "demo:dev": "npm --prefix demo run dev",
     "demo:build": "npm --prefix demo run build",
     "demo:install": "npm --prefix demo install"
   },
   "devDependencies": {
+    "tsup": "^8.5.1",
     "typescript": "^5.4.0"
   }
 }
