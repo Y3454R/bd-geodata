@@ -4,7 +4,7 @@ import path from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: process.env.GITHUB_ACTIONS ? '/bd-geodata/' : '/',
   resolve: {
     alias: {
       '@data': path.resolve(__dirname, '../src/data'),
