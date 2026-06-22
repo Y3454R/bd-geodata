@@ -1,5 +1,5 @@
 {
-  "name": "bd-geodata",
+  "name": "bd-geojson",
   "version": "1.0.1",
   "description": "Open-source geographic data for Bangladesh — divisions, districts, upazilas, postcodes, and full boundary GeoJSON.",
   "keywords": [
